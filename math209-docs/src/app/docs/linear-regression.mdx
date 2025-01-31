@@ -1,0 +1,45 @@
+---
+title: Linear Regression
+order: 2
+---
+
+# Linear Regression
+
+Linear regression is one of the fundamental algorithms in machine learning. It serves as a building block for understanding more complex models.
+
+## Mathematical Formulation
+
+In linear regression, we model the relationship between input features $x$ and target variable $y$ as:
+
+$$
+y = wx + b
+$$
+
+where $w$ is the weight (slope) and $b$ is the bias (intercept).
+
+## Implementation
+
+Here's a simple implementation using Python and NumPy:
+
+<CodeBlock language="python">
+import numpy as np
+
+def linear*regression(X, y): # Add bias term
+X_b = np.c*[np.ones((X.shape[0], 1)), X]
+
+    # Compute weights using normal equation
+    theta = np.linalg.inv(X_b.T @ X_b) @ X_b.T @ y
+
+    return theta[1:], theta[0]
+
+</CodeBlock>
+
+## Loss Function
+
+The mean squared error (MSE) loss function is defined as:
+
+$$
+L(w,b) = \frac{1}{n}\sum_{i=1}^n (y_i - (wx_i + b))^2
+$$
+
+<InteractiveChart type="loss" />{" "}
